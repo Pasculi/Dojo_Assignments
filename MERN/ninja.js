@@ -11,7 +11,7 @@ class Ninja{
 //Sacamos los metodos y se los asignamos al prototipo Ninja, para que este disponuble para futuros Ninjas. Asi evitamos que el metodo este duplicada para cada Objeto
 
 Ninja.prototype.sayName = function (){
-     console.log(`El nombre del ninja es: ${this.nombre}`);
+     console.log(`Mi nombre es: ${this.nombre}`);
      
 }
 Ninja.prototype.showStats = function (){          
