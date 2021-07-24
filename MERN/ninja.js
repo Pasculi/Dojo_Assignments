@@ -1,3 +1,4 @@
+  
 class Ninja{
      constructor(nombre, salud, velocidad, fuerza){
           this.nombre = nombre;
@@ -5,20 +6,39 @@ class Ninja{
           this.velocidad = 3
           this.fuerza = 3
      }
-     sayName(){
-          console.log(`El nombre del ninja es: ${this.nombre}`);
-          
-     }
-     showStats(){          
-          console.log(`El nombre del ninja ${this.nombre} - Fuerza: ${this.fuerza} - Velocidad: ${this.velocidad} - Salud: ${this.salud}`);
-     }
-     drinkSake (){
-          this.salud+=10;
-     } 
+      
+}
+//Sacamos los metodos y se los asignamos al prototipo Ninja, para que este disponuble para futuros Ninjas. Asi evitamos que el metodo este duplicada para cada Objeto
+
+Ninja.prototype.sayName = function (){
+     console.log(`El nombre del ninja es: ${this.nombre}`);
+     
+}
+Ninja.prototype.showStats = function (){          
+     console.log(`El nombre del ninja: ${this.nombre} - Fuerza: ${this.fuerza} - Velocidad: ${this.velocidad} - Salud: ${this.salud}`);
+}
+Ninja.prototype.drinkSake = function () {
+     this.salud+=10;
 }
 
+//Herencia prototipica
+//Creación de funcion constructora Sensei
+
+class Sensei extends Ninja{
+     constructor( nombre, salud, velocidad, fuerza, sabiduria){
+          super(nombre, salud, velocidad, fuerza);
+          this.sabiduria = 10;
+     }
+}
+Ninja.prototype.speakWisdom = function (){
+     console.log(`Yo soy un Sensei: ${this.nombre}`);
+
+}
+const ninja2 = new Sensei("Akira", 100);
 const ninja1 = new Ninja("Sekigahara", 100);
 
 ninja1.sayName();
+ninja2.sayName();
 ninja1.showStats();
 ninja1.drinkSake();
+ninja2.speakWisdom();
